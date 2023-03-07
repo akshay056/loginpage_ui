@@ -1,11 +1,12 @@
 import React,{useState} from "react";
+import { BrowserRouter,Link } from "react-router-dom";
 import './App.css';
 import { Form,Button } from 'react-bootstrap';
 import swal from 'sweetalert';
 
 async function loginUser(credentials) 
 {
-    return fetch('https://172.29.91.71/api/home/login', {
+    return fetch('https://hub.dummyapis.com/vj/kkoCBw3', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -19,7 +20,7 @@ const Login  = () => {
     const [email,setName]=useState("");
     const [password,setPassword]=useState("");
     
-    const handleSubmit = async (e) => {
+   const handleSubmit = async (e) => {
       e.preventDefault();
       console.log(email);
       const response = await loginUser({
@@ -35,17 +36,17 @@ const Login  = () => {
             localStorage.setItem('isSuccess', response['Yes']);
             localStorage.setItem('message', response['User Login Successful']);
             localStorage.setItem('email', JSON.stringify(response['email']));
-            window.location.href = "https://javascript.plainenglish.io/basic-react-login-using-external-api-e33322e480cd";
+            window.location.href = "";
           });
       } else {
         swal("Failed", response.message, "error");
       }
     }
 
-    /*
+   /*
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username);
+        console.log(email);
  
     }*/
     return(
@@ -77,9 +78,13 @@ const Login  = () => {
                             <Form.Check type="checkbox" label="Remember me" />
                             <Form.Check><a href="#">Forgot password</a></Form.Check></div>
                         </Form.Group>
-                        <Button type="submit" onClick={handleSubmit} variant="outline-dark">
+                        <BrowserRouter>
+       
+   
+    <Button type="submit" variant="outline-dark"><Link to='/Login' target='_blank'>
                             Sign in
-                        </Button>
+                            </Link>
+                        </Button></BrowserRouter>
                     </Form>
                 </div>
             </section>
