@@ -5,10 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar,Container,Nav } from 'react-bootstrap';
 
 function App() {
-
-  return (
-    
-      
+  
+  return (     
         <><Navbar bg="light" variant="light">
       <Container>
         <Navbar.Brand href="#home"><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvYaeR-i3XTeiKMy5eNtDAt29NfmgC_bRRtUBH2XHi&s'></img></Navbar.Brand>
